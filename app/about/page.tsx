@@ -8,7 +8,7 @@ export default function AboutPage() {
   const bioData = [
     { icon: User, label: 'Name', value: 'Muhammad Rifki' },
     { icon: Calendar, label: 'Birthday', value: '23 January 2002' },
-    { icon: Globe, label: 'Website', value: 'www.example.com', link: 'https://www.example.com' },
+    { icon: Globe, label: 'Website', value: 'https://portfolio-ruby-zeta-87.vercel.app/', link: 'https://portfolio-ruby-zeta-87.vercel.app/' },
     { icon: Mail, label: 'Phone', value: '+62-8213-4915-306' },
     { icon: MapPin, label: 'City', value: 'Sleman, Yogyakarta' },
   ];
