@@ -14,16 +14,16 @@ export default function Footer() {
 
           <div className="flex gap-6">
             <Link
-              href="https://github.com"
-              target="https://github.com/iikiiwww"
+              href="https://github.com/iikiiwww"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               <Github size={20} />
             </Link>
             <Link
-              href="https://linkedin.com"
-              target="https://www.linkedin.com/in/muhammad-rifki-0b9689291/"
+              href="https://www.linkedin.com/in/muhammad-rifki-0b9689291"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
