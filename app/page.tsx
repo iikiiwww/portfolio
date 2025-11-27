@@ -35,7 +35,7 @@ export default function Home() {
             transition={{ delay: 0.3 }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4"
           >
-            Hi, I'm <span className="text-primary">Muhammad Rifki</span>
+            Hi, I'm <span className="text-primary">Rifki</span>
           </motion.h1>
 
           <motion.p
