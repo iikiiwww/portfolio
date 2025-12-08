@@ -62,7 +62,7 @@ export default function ProjectsPage() {
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden rounded-t-2xl">
                   <img
-                    src="/WhatsApp Image 2025-11-28 at 00.31.15_f2cf65ee.jpg"
+                    src="/profile/mlml.jpg"
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
