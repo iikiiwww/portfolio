@@ -27,7 +27,7 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-background/40">
+    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-background/40 fade-in">
       <div className="max-w-5xl mx-auto">
 
         {/* Title */}
@@ -37,7 +37,7 @@ export default function AboutPage() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight title-glow neon-underline">
             About Me
           </h1>
           <div className="w-24 h-1 rounded-full bg-primary/80 mx-auto shadow-soft"></div>
@@ -50,7 +50,7 @@ export default function AboutPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex justify-center mb-12"
         >
-          <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-primary shadow-smooth hover:shadow-soft-lg transition-all duration-500">
+          <div className="relative w-48 h-48 rounded-full overflow-hidden glow-border glass parallax-hover hologram">
             <img
               src="/profile/kiw.jpg"
               alt="Profile"
@@ -64,7 +64,7 @@ export default function AboutPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="bg-accent/30 border-l-4 border-primary p-6 rounded-xl shadow-soft backdrop-blur-sm mb-12"
+          className="glass border-l-4 border-primary p-6 rounded-xl shadow-soft mb-12 sparkle"
         >
           <p className="text-lg sm:text-xl italic text-foreground leading-relaxed text-center">
             "Are you a great developer because you write good code, or do you
@@ -82,9 +82,9 @@ export default function AboutPage() {
           transition={{ delay: 0.3 }}
           className="mb-12"
         >
-          <Card className="shadow-smooth hover:shadow-soft-lg transition-all">
+          <Card className="glass shadow-smooth hover:shadow-soft-lg transition-all section-float">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold mb-4 tracking-tight">Who Am I?</h2>
+              <h2 className="text-2xl font-bold mb-4 tracking-tight title-glow">Who Am I?</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 I'm a passionate full stack developer with expertise in building
                 modern web applications. I love crafting elegant solutions and am
@@ -102,7 +102,7 @@ export default function AboutPage() {
 
         {/* Personal Info */}
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
-          <h2 className="text-2xl font-bold mb-6 text-center tracking-tight">
+          <h2 className="text-2xl font-bold mb-6 text-center tracking-tight title-glow">
             Personal Information
           </h2>
 
@@ -111,7 +111,7 @@ export default function AboutPage() {
               const Icon = item.icon;
               return (
                 <motion.div key={index} variants={itemVariants}>
-                  <Card className="hover:shadow-soft-lg shadow-soft transition-all duration-300 cursor-pointer group">
+                  <Card className="glass hover:shadow-soft-lg shadow-soft transition-all duration-300 cursor-pointer group hover-float">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
 
