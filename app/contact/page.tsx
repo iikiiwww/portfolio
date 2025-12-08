@@ -1,183 +1,111 @@
+
 'use client';
 
 import { motion } from 'framer-motion';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Mail, Phone, Instagram } from 'lucide-react';
-import { useState } from 'react';
-import { useToast } from '@/hooks/use-toast';
+import { ExternalLink, Github } from 'lucide-react';
 
-export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: 'Message Sent!',
-      description: 'Thank you for your message. I will get back to you soon.',
-    });
-    setFormData({ name: '', email: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const contactMethods = [
+export default function ProjectsPage() {
+  const projects = [
     {
-      icon: Phone,
-      title: 'WhatsApp',
-      value: '+62 812 3456 7890',
-      link: 'https://wa.me/6282134915306',
-      color: 'text-green-600',
+      title: 'Joki Mobile Legends Platform',
+      description: 'Website landing page untuk layanan Joki Mobile Legends dengan tampilan modern, informasi paket, serta fitur pemesanan yang mudah.',
+      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600',
+      demo: 'https://jokiyam.my.id/',
+      github: 'https://github.com/iikiiwww/joki-dulu-aja.git',
+      tags: ['HTML', 'JavaScript', 'CSS'],
     },
-    {
-      icon: Instagram,
-      title: 'Instagram',
-      value: '@_iikiiwww',
-      link: 'https://www.instagram.com/_iikiiwww?igsh=MnFnb3R5aWhiNmNj&utm_source=qr',
-      color: 'text-pink-600',
-    },
-    {
-      icon: Mail,
-      title: 'Email',
-      value: 'rifki@students.amikom.ac.id',
-      link: 'mailto:rifki@students.amikom.ac.id',
-      color: 'text-blue-600',
-    },
+    
   ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Get In Touch</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">My Projects</h1>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Have a question or want to work together? Feel free to reach out!
+            Here are some of my recent projects. Click the links to view demos or explore the code on GitHub.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Card className="h-full">
-              <CardHeader>
-                <CardTitle>Send Me a Message</CardTitle>
-                <CardDescription>
-                  Fill out the form below and I'll get back to you as soon as possible.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                    />
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {projects.map((project, index) => (
+            <motion.div key={index} variants={itemVariants}>
+              <Card className="h-full flex flex-col overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src="/profile/mlml.jpg"
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-xl">{project.title}</CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Your message here..."
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full" size="lg">
-                    Send Message
+                </CardContent>
+                <CardFooter className="flex gap-2">
+                  <Button
+                    variant="default"
+                    size="sm"
+                    className="flex-1"
+                    onClick={() => window.open(project.demo, '_blank')}
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Demo
                   </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="space-y-6"
-          >
-            <Card>
-              <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
-                <CardDescription>
-                  You can also reach me through any of these channels.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {contactMethods.map((method, index) => {
-                  const Icon = method.icon;
-                  return (
-                    <motion.a
-                      key={index}
-                      href={method.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary hover:shadow-md transition-all duration-300 group"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <div className={`bg-primary/10 p-3 rounded-full ${method.color}`}>
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-sm text-muted-foreground">
-                          {method.title}
-                        </p>
-                        <p className="font-semibold group-hover:text-primary transition-colors">
-                          {method.value}
-                        </p>
-                      </div>
-                    </motion.a>
-                  );
-                })}
-              </CardContent>
-            </Card>
-
-
-          </motion.div>
-        </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1"
+                    onClick={() => window.open(project.github, '_blank')}
+                  >
+                    <Github className="w-4 h-4 mr-2" />
+                    GitHub
+                  </Button>
+                </CardFooter>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </div>
   );
