@@ -81,127 +81,114 @@
   }
 }
 
-/* Smooth page transition */
+/* Clean smooth transition */
 body {
   transition: background 0.4s ease, color 0.4s ease;
+  font-smooth: always;
 }
 
-/* Fade-in animation for all elements */
+/* Soft fade for all elements */
 * {
-  animation: fadeIn 0.45s ease;
+  animation: softFade 0.3s ease;
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Light mode premium gradient */
-:root {
-  --bg-gradient: linear-gradient(
-    135deg,
-    #ffffff 0%,
-    #f2f4f8 100%
-  );
+@keyframes softFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
+/* Minimalist background */
 body:not(.dark) {
-  background: var(--bg-gradient);
+  background: #fafafa;
 }
-
-/* Dark mode stylish gradient */
 .dark body {
-  background: radial-gradient(
-    circle at top,
-    rgba(50, 50, 50, 1) 0%,
-    rgba(15, 15, 15, 1) 100%
-  );
+  background: #111;
 }
 
-/* Card, container, popover glow */
-.card, .popover, .glass, .box, .container {
-  backdrop-filter: blur(8px);
+/* Card clean shadow */
+.card, .container, .box {
   border-radius: 14px;
-  transition: 0.3s ease;
-  box-shadow: 0 0 10px rgba(0,0,0,0.08);
-}
-
-.card:hover,
-.popover:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(0,0,0,0.15);
-}
-
-/* Glassmorphism utility */
-.glass {
-  background: rgba(255,255,255,0.2);
-  border: 1px solid rgba(255,255,255,0.3);
-}
-.dark .glass {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-/* Buttons smoother & premium */
-button, .btn {
+  background: white;
+  padding: 1.2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   transition: 0.2s ease;
-  border-radius: 12px;
+}
+.dark .card,
+.dark .container,
+.dark .box {
+  background: #181818;
+  box-shadow: 0 2px 16px rgba(255,255,255,0.05);
+}
+.card:hover,
+.container:hover {
+  transform: translateY(-2px);
+}
+
+/* Minimalist buttons */
+button, .btn {
+  border-radius: 10px;
+  padding: 0.55rem 1rem;
+  font-weight: 500;
+  transition: 0.2s ease;
 }
 button:hover,
 .btn:hover {
-  transform: scale(1.04);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  background: rgba(0,0,0,0.06);
 }
 .dark button:hover,
 .dark .btn:hover {
-  box-shadow: 0 4px 18px rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.1);
 }
 
-/* Input enhancement */
+/* Input clean style */
 input, textarea, select {
+  border-radius: 8px;
+  padding: 0.55rem 0.8rem;
   transition: 0.25s ease;
-  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 input:focus,
 textarea:focus,
 select:focus {
-  box-shadow: 0 0 12px rgba(120,120,255,0.4);
+  border-color: #000;
+}
+.dark input,
+.dark textarea,
+.dark select {
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: white;
 }
 
-/* Neon Border effect (utility class) */
-.neon {
-  box-shadow: 0 0 12px rgba(0, 195, 255, 0.8);
-}
-
-/* Modern scrollbar */
+/* Minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.05);
+  width: 6px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(120,120,120,0.4);
+  background: rgba(0,0,0,0.2);
   border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(120,120,120,0.7);
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
 }
 
-/* Floating animation utility */
-.float {
-  animation: floatAnim 3s ease-in-out infinite;
+/* Soft hover lift utility */
+.lift {
+  transition: 0.25s ease;
 }
-@keyframes floatAnim {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
+.lift:hover {
+  transform: translateY(-3px);
 }
 
-/* Glow animation utility */
-.glow {
-  animation: glow 2s infinite alternate;
+/* Soft divider line utility */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+  margin: 12px 0;
 }
-@keyframes glow {
-  from { box-shadow: 0 0 8px rgba(0,200,255,0.5); }
-  to { box-shadow: 0 0 16px rgba(0,200,255,0.8); }
+.dark .divider {
+  background: rgba(255,255,255,0.1);
 }
