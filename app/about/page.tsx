@@ -49,7 +49,7 @@ export default function AboutPage() {
         >
           <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-primary shadow-xl">
             <img
-              src="/profile/kiw.jpg"
+              src="/profile/profile.jpeg"
               alt="Profile"
               className="w-full h-full object-cover"
             />
