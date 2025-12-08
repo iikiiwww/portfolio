@@ -80,3 +80,128 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Smooth page transition */
+body {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Fade-in animation for all elements */
+* {
+  animation: fadeIn 0.45s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Light mode premium gradient */
+:root {
+  --bg-gradient: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f2f4f8 100%
+  );
+}
+
+body:not(.dark) {
+  background: var(--bg-gradient);
+}
+
+/* Dark mode stylish gradient */
+.dark body {
+  background: radial-gradient(
+    circle at top,
+    rgba(50, 50, 50, 1) 0%,
+    rgba(15, 15, 15, 1) 100%
+  );
+}
+
+/* Card, container, popover glow */
+.card, .popover, .glass, .box, .container {
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+
+.card:hover,
+.popover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.dark .glass {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Buttons smoother & premium */
+button, .btn {
+  transition: 0.2s ease;
+  border-radius: 12px;
+}
+button:hover,
+.btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
+.dark button:hover,
+.dark .btn:hover {
+  box-shadow: 0 4px 18px rgba(255,255,255,0.1);
+}
+
+/* Input enhancement */
+input, textarea, select {
+  transition: 0.25s ease;
+  border-radius: 10px;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 12px rgba(120,120,255,0.4);
+}
+
+/* Neon Border effect (utility class) */
+.neon {
+  box-shadow: 0 0 12px rgba(0, 195, 255, 0.8);
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120,120,120,0.4);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120,120,120,0.7);
+}
+
+/* Floating animation utility */
+.float {
+  animation: floatAnim 3s ease-in-out infinite;
+}
+@keyframes floatAnim {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* Glow animation utility */
+.glow {
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  from { box-shadow: 0 0 8px rgba(0,200,255,0.5); }
+  to { box-shadow: 0 0 16px rgba(0,200,255,0.8); }
+}
