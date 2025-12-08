@@ -178,81 +178,65 @@ select:focus {
   100% { opacity: 0.2; transform: scale(1); }
 }
 
+/* ===================================================== */
+/*    💠 NEW UPGRADE: MORE NEON, MORE COLORFUL, CLEAN    */
+/* ===================================================== */
 
-/* ========================================================= */
-/*   🔥🔥  EXTRA PREMIUM EFFECTS (TAMBAHAN TANPA UBAH CODE AWAL) */
-/* ========================================================= */
-
-/* Glow border effect */
+/* Subtle glowing border effect */
 .glow-border {
-  position: relative;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  background-image: linear-gradient(#fff0, #fff0),
+    linear-gradient(135deg, #75a7ff, #c678ff, #6ff2ff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
-.glow-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(135deg, #6da8ff, #c878ff, #77f0ff);
-  -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
-  mask: 
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: glowRotate 5s linear infinite;
+/* Neon image frame (simple & clean) */
+.img-simple-frame {
+  border-radius: 18px;
+  padding: 4px;
+  background: linear-gradient(135deg, #8fc6ff, #e29fff);
+  box-shadow: 0 0 20px rgba(120, 150, 255, 0.28);
 }
 
-@keyframes glowRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.dark .img-simple-frame {
+  background: linear-gradient(135deg, #4a4a4a, #777);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
 }
 
-/* Glass pop animation */
-.glass-pop:hover {
+/* Soft hover enlarger */
+.soft-bounce:hover {
   transform: scale(1.05);
-  backdrop-filter: blur(16px) saturate(200%);
+  filter: brightness(1.12);
 }
 
-/* Neon Pulse Text */
-.neon-text {
-  animation: neonPulse 2.5s infinite ease-in-out;
+/* Animated rainbow highlight */
+.rainbow-light {
+  animation: neonRainbow 6s linear infinite;
 }
 
-@keyframes neonPulse {
-  0% { text-shadow: 0 0 4px #77f0ff, 0 0 8px #77aaff; }
-  50% { text-shadow: 0 0 10px #88ffff, 0 0 20px #c878ff; }
-  100% { text-shadow: 0 0 4px #77f0ff, 0 0 8px #77aaff; }
+@keyframes neonRainbow {
+  0% { filter: drop-shadow(0 0 6px #77aaff); }
+  25% { filter: drop-shadow(0 0 6px #ff8bda); }
+  50% { filter: drop-shadow(0 0 6px #7bffe3); }
+  75% { filter: drop-shadow(0 0 6px #ffd467); }
+  100% { filter: drop-shadow(0 0 6px #77aaff); }
 }
 
-/* Hover tilt effect */
-.tilt-hover:hover {
-  transform: rotate3d(1, 1, 0, 6deg) scale(1.03);
+/* Big section glow */
+.section-glow {
+  box-shadow: 0 0 40px rgba(120, 150, 255, 0.22);
+  border-radius: 22px;
 }
 
-/* Soft particle glow */
-.particle-glow {
-  position: relative;
-  overflow: hidden;
+/* Simplified clean icon pulse */
+.icon-pulse {
+  animation: pulseIcon 2.6s infinite ease-in-out;
 }
 
-.particle-glow::after {
-  content: "";
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(120,160,255,0.35), transparent 70%);
-  top: -40px;
-  left: -40px;
-  animation: particleFloat 6s infinite ease-in-out;
+@keyframes pulseIcon {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
 }
-
-@keyframes particleFloat {
-  0% { transform: translate(0,0); opacity: 0.4; }
-  50% { transform: translate(40px,20px); opacity: 1; }
-  100% { transform: translate(0,0); opacity: 0.4; }
-}
-
