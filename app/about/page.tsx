@@ -37,10 +37,10 @@ export default function AboutPage() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight title-glow neon-underline">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight title-glow neon-underline animate-pulse">
             About Me
           </h1>
-          <div className="w-24 h-1 rounded-full bg-primary/80 mx-auto shadow-soft"></div>
+          <div className="w-32 h-1 rounded-full bg-primary/80 mx-auto shadow-lg"></div>
         </motion.div>
 
         {/* Profile Image */}
@@ -50,11 +50,11 @@ export default function AboutPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex justify-center mb-12"
         >
-          <div className="relative w-48 h-48 rounded-full overflow-hidden glow-border glass parallax-hover hologram">
+          <div className="relative w-48 h-48 rounded-full overflow-hidden glow-border glass parallax-hover hologram shadow-xl">
             <img
               src="/profile/kiw.jpg"
               alt="Profile"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:scale-110 transition-all duration-500"
             />
           </div>
         </motion.div>
@@ -64,9 +64,9 @@ export default function AboutPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="glass border-l-4 border-primary p-6 rounded-xl shadow-soft mb-12 sparkle"
+          className="glass border-l-4 border-primary p-6 rounded-xl shadow-soft mb-12 sparkle hover:shadow-xl hover:scale-[1.02] transition-all"
         >
-          <p className="text-lg sm:text-xl italic text-foreground leading-relaxed text-center">
+          <p className="text-lg sm:text-xl italic text-foreground leading-relaxed text-center drop-shadow">
             "Are you a great developer because you write good code, or do you
             write good code because you're a great developer?"
           </p>
@@ -82,9 +82,11 @@ export default function AboutPage() {
           transition={{ delay: 0.3 }}
           className="mb-12"
         >
-          <Card className="glass shadow-smooth hover:shadow-soft-lg transition-all section-float">
+          <Card className="glass shadow-smooth hover:shadow-soft-lg transition-all section-float border border-primary/20">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold mb-4 tracking-tight title-glow">Who Am I?</h2>
+              <h2 className="text-2xl font-bold mb-4 tracking-tight title-glow neon-underline">
+                Who Am I?
+              </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 I'm a passionate full stack developer with expertise in building
                 modern web applications. I love crafting elegant solutions and am
@@ -102,7 +104,7 @@ export default function AboutPage() {
 
         {/* Personal Info */}
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
-          <h2 className="text-2xl font-bold mb-6 text-center tracking-tight title-glow">
+          <h2 className="text-2xl font-bold mb-6 text-center tracking-tight title-glow neon-underline">
             Personal Information
           </h2>
 
@@ -111,12 +113,12 @@ export default function AboutPage() {
               const Icon = item.icon;
               return (
                 <motion.div key={index} variants={itemVariants}>
-                  <Card className="glass hover:shadow-soft-lg shadow-soft transition-all duration-300 cursor-pointer group hover-float">
+                  <Card className="glass hover:shadow-soft-lg shadow-soft transition-all duration-300 cursor-pointer group hover-float border border-primary/20">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
 
                         {/* Icon */}
-                        <div className="bg-primary/10 p-3 rounded-full group-hover:bg-primary/20 transition-colors">
+                        <div className="bg-primary/10 p-3 rounded-full group-hover:bg-primary/20 transition-colors shadow-md">
                           <Icon className="w-6 h-6 text-primary" />
                         </div>
 
@@ -128,7 +130,7 @@ export default function AboutPage() {
                               href={item.link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="font-medium hover:text-primary transition-colors"
+                              className="font-medium hover:text-primary transition-colors hover:underline"
                             >
                               {item.value}
                             </a>
