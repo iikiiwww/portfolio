@@ -22,7 +22,7 @@ export default function Home() {
               className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-primary"
             >
               <img
-                src="/profile/profile.jpeg"
+                src="/profile/kiw.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
